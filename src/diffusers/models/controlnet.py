@@ -428,6 +428,7 @@ class ControlNetModel(ModelMixin, ConfigMixin, FromOriginalControlnetMixin):
         controlnet_conditioning_channel_order: str = "rgb",
         conditioning_embedding_out_channels: Optional[Tuple[int]] = (16, 32, 96, 256),
         load_weights_from_unet: bool = True,
+        conditioning_channels: int = 4,
     ):
         r"""
         Instantiate a [`ControlNetModel`] from [`UNet2DConditionModel`].
@@ -448,6 +449,7 @@ class ControlNetModel(ModelMixin, ConfigMixin, FromOriginalControlnetMixin):
         )
 
         controlnet = cls(
+            conditioning_channels=conditioning_channels,
             encoder_hid_dim=encoder_hid_dim,
             encoder_hid_dim_type=encoder_hid_dim_type,
             addition_embed_type=addition_embed_type,

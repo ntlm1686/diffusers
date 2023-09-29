@@ -272,6 +272,8 @@ class VaeImageProcessor(ConfigMixin):
         if isinstance(image[0], PIL.Image.Image):
             if self.config.do_convert_rgb:
                 image = [self.convert_to_rgb(i) for i in image]
+            # elif self.config.do_convert_rgba:
+            #     image = [self.convert_to_rgb(i) for i in image]
             elif self.config.do_convert_grayscale:
                 image = [self.convert_to_grayscale(i) for i in image]
             if self.config.do_resize:
